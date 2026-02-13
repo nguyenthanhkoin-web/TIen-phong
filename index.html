@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Interactive Layout</title>
+
+<style>
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial;
+    background-color: #111;
+}
+
+/* Ảnh chính */
+.main-img {
+    width: 300px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.main-img:hover {
+    transform: scale(1.05);
+}
+
+/* Container giữ 2 ảnh ở giữa */
+.image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Căn giữa cả cụm */
+    margin-top: 40px;
+}
+
+.image-row {
+    width: 60%; /* Không full màn hình */
+    display: flex;
+    justify-content: space-between;
+}
+
+.side-img {
+    width: 250px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.side-img:hover {
+    transform: scale(1.1);
+}
+
+.hidden {
+    display: none;
+}
+
+.links {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.links a {
+    display: block;
+    color: white;
+    font-size: 18px;
+    margin: 10px;
+    text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<img src="main.jpg" class="main-img" onclick="showImages()">
+
+<div id="imageGroup" class="image-wrapper hidden">
+    <div class="image-row">
+        <img src="img1.jpg" class="side-img" onclick="showLinks()">
+        <img src="img2.jpg" class="side-img" onclick="showLinks()">
+    </div>
+</div>
+
+<div id="linkGroup" class="links hidden">
+    <a href="https://google.com" target="_blank">Link 1</a>
+    <a href="https://youtube.com" target="_blank">Link 2</a>
+</div>
+
+<script>
+function showImages() {
+    document.getElementById("imageGroup").classList.remove("hidden");
+}
+
+function showLinks() {
+    document.getElementById("linkGroup").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
