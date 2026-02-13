@@ -27,16 +27,15 @@ body {
     transform: scale(1.05);
 }
 
-/* Container giữ 2 ảnh ở giữa */
+/* Container 2 ảnh */
 .image-wrapper {
     width: 100%;
     display: flex;
-    justify-content: center; /* Căn giữa cả cụm */
-    margin-top: 40px;
+    justify-content: center;
 }
 
 .image-row {
-    width: 60%; /* Không full màn hình */
+    width: 60%;
     display: flex;
     justify-content: space-between;
 }
@@ -54,45 +53,37 @@ body {
 .hidden {
     display: none;
 }
-
-.links {
-    margin-top: 30px;
-    text-align: center;
-}
-
-.links a {
-    display: block;
-    color: white;
-    font-size: 18px;
-    margin: 10px;
-    text-decoration: none;
-}
 </style>
 </head>
 
 <body>
 
-<img src="main.jpg" class="main-img" onclick="showImages()">
+<!-- Ảnh chính -->
+<img src="main.jpg" id="mainImage" class="main-img" onclick="showImages()">
 
+<!-- 2 ảnh hai bên -->
 <div id="imageGroup" class="image-wrapper hidden">
     <div class="image-row">
-        <img src="img1.jpg" class="side-img" onclick="showLinks()">
-        <img src="img2.jpg" class="side-img" onclick="showLinks()">
+        <img src="img1.jpg" class="side-img" onclick="goLink1()">
+        <img src="img2.jpg" class="side-img" onclick="goLink2()">
     </div>
-</div>
-
-<div id="linkGroup" class="links hidden">
-    <a href="https://heyzine.com/flip-book/49aac53471.html" target="_blank">Link 1</a>
-    <a href="https://heyzine.com/flip-book/13bf4079ff.html" target="_blank">Link 2</a>
 </div>
 
 <script>
 function showImages() {
+    // Ẩn ảnh main
+    document.getElementById("mainImage").style.display = "none";
+    
+    // Hiện 2 ảnh mới
     document.getElementById("imageGroup").classList.remove("hidden");
 }
 
-function showLinks() {
-    document.getElementById("linkGroup").classList.remove("hidden");
+function goLink1() {
+    window.open("https://google.com", "_blank");
+}
+
+function goLink2() {
+    window.open("https://youtube.com", "_blank");
 }
 </script>
 
